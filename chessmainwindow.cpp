@@ -1,7 +1,10 @@
 #include "chessmainwindow.h"
 
 ChessMainWindow::ChessMainWindow(QWidget *parent)
-    : QMainWindow(parent)
-{}
+    : QMainWindow(parent){
+    this->field = new ChessField();
+}
 
-ChessMainWindow::~ChessMainWindow() {}
+ChessMainWindow::~ChessMainWindow() {
+    delete[] field;
+}

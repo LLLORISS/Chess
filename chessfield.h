@@ -2,18 +2,16 @@
 #define CHESSFIELD_H
 
 #include <QMainWindow>
-#include <vector>
 #include <chesspiece.h>
-
-unsigned int rows = cols = 8;
 
 class ChessField : public QMainWindow{
 private:
     Q_OBJECT
 
-    std::vector<std::vector<ChessPiece>> field;
+    ChessPiece** field;
 public:
     explicit ChessField(QWidget *parent = nullptr);
+    ~ChessField();
 
 signals:
 };

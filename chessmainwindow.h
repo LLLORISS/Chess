@@ -2,10 +2,12 @@
 #define CHESSMAINWINDOW_H
 
 #include <QMainWindow>
+#include <chessfield.h>
 
 class ChessMainWindow : public QMainWindow
 {
     Q_OBJECT
+    ChessField* field;
 
 public:
     ChessMainWindow(QWidget *parent = nullptr);

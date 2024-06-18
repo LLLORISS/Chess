@@ -8,6 +8,7 @@
 #include <QGraphicsRectItem>
 #include <QCoreApplication>
 #include <QFile>
+#include <QGraphicsPixmapItem>
 
 class ChessField : public QGraphicsView{
 private:
@@ -16,8 +17,13 @@ private:
     QGraphicsScene *scene;
     int boardSize;
     int squareSize;
+    ChessPiece **field;
+
+    void initializeField();
+    void drawPieces();
 public:
     explicit ChessField(QWidget *parent = nullptr);
+    ~ChessField();
 
     void drawField();
 

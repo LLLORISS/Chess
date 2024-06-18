@@ -2,9 +2,12 @@
 
 ChessMainWindow::ChessMainWindow(QWidget *parent)
     : QMainWindow(parent){
-    this->field = new ChessField();
+    this->fieldWidget = new ChessField(this);
+    setCentralWidget(fieldWidget);
+
+    this->showMaximized();
 }
 
 ChessMainWindow::~ChessMainWindow() {
-    delete[] field;
+    delete fieldWidget;
 }

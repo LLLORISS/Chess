@@ -3,15 +3,23 @@
 
 #include <QMainWindow>
 #include <chesspiece.h>
+#include <QGraphicsView>
+#include <QGraphicsScene>
+#include <QGraphicsRectItem>
+#include <QCoreApplication>
+#include <QFile>
 
-class ChessField : public QMainWindow{
+class ChessField : public QGraphicsView{
 private:
     Q_OBJECT
 
-    ChessPiece** field;
+    QGraphicsScene *scene;
+    int boardSize;
+    int squareSize;
 public:
     explicit ChessField(QWidget *parent = nullptr);
-    ~ChessField();
+
+    void drawField();
 
 signals:
 };

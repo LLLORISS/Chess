@@ -3,10 +3,11 @@
 ChessPiece::ChessPiece() {
     pieceType = NONEType;
     pieceColor = NONEColor;
+    this->coords = std::make_pair(0,0);
 }
 
 void ChessPiece::move(unsigned int i, unsigned int j){
-    this->coords = std::make_pair<unsigned int, unsigned int>(0,0);
+    this->coords = std::make_pair(i,j);
 }
 
 ChessType ChessPiece::getType(){ return this->pieceType; }

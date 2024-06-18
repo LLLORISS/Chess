@@ -1,25 +1,27 @@
 #include "chessfield.h"
 
-unsigned int rows = 8, cols = 8;
-
 ChessField::ChessField(QWidget *parent)
-    : QMainWindow{parent}{
+    : QGraphicsView{parent}, boardSize(8), squareSize(98){
 
-    field = new ChessPiece*[rows];
+    scene = new QGraphicsScene(this);
+    setScene(scene);
 
-    for(unsigned int i = 0; i < rows; i++){
-        field[i] = new ChessPiece[cols];
-        for(unsigned int j = 0; j < cols; j++){
-            field[i][j].setType(NONEType);
-            field[i][j].setColor(NONEColor);
-        }
-    }
+    scene->setBackgroundBrush(QBrush(QPixmap(QCoreApplication::applicationDirPath() + "/resources/background.jpg")));
+
+    drawField();
 }
 
-ChessField::~ChessField(){
-    for(unsigned int i = 0; i < rows; i++){
-        delete[] field[i];
+void ChessField::drawField(){
+    for(int row = 0; row < boardSize; ++row){
+        for(int col = 0; col < boardSize; ++col){
+            QGraphicsRectItem *square = new QGraphicsRectItem(col * squareSize, row * squareSize, squareSize, squareSize);
+            if((row + col) % 2 == 0){
+                square->setBrush(Qt::white);
+            }
+            else{
+                square->setBrush(Qt::gray);
+            }
+            scene->addItem(square);
+        }
     }
-
-    delete[] field;
 }

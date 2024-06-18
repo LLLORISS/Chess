@@ -7,7 +7,7 @@
 class ChessMainWindow : public QMainWindow
 {
     Q_OBJECT
-    ChessField* field;
+    ChessField* fieldWidget;
 
 public:
     ChessMainWindow(QWidget *parent = nullptr);
